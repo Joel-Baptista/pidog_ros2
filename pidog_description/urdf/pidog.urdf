@@ -1,0 +1,393 @@
+<?xml version="1.0" ?>
+<robot name="PiDog">
+  <link name="body">
+    <!-- <visual><geometry><box size="0.1 0.1 0.1"/></geometry></visual>
+    <collision><geometry><box size="0.1 0.1 0.1"/></geometry></collision> -->
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/body.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/body.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+      <mass value="0.150235137"/>
+      <!-- <inertia ixx="3.850881180e-04" ixy="-3.935522340e-05" ixz="1.660095831e-08" iyy="1.600992763e-04" iyz="4.845267497e-09" izz="3.450054696e-04"/> -->
+      <inertia ixx="3.850881180e-04" ixy="1.660095831e-08" ixz="1.660095831e-08" iyy="1.600992763e-04" iyz="4.845267497e-09" izz="3.450054696e-04"/>
+    </inertial>
+  </link>
+
+
+  <!-- ===============================================================================================================
+  ========================================== BACK RIGHT LEG =====================================================
+  =============================================================================================================== -->
+
+  <link name="motor_0">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>  
+  
+  <link name="motor_1">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>
+
+  <link name="back_right_leg_b">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0205 0.0025 0.0000" rpy="0 0 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <link name="back_right_leg_a">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0308 0.0009 0.0010" rpy="0 0 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <joint name="body_to_back_right_leg_b" type="revolute">
+    <parent link="body"/>
+    <child  link="back_right_leg_b"/>
+    <origin xyz="0.04075 -0.07575 -0.009" rpy="0 1.57 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <joint name="back_right_leg_b_to_motor_0" type="fixed">
+    <parent link="back_right_leg_b"/>
+    <child  link="motor_0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="back_right_leg_b_to_a" type="revolute">
+    <parent link="back_right_leg_b"/>
+    <child  link="back_right_leg_a"/>
+    <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  
+  </joint>
+    <joint name="back_right_leg_a_to_motor_1" type="fixed">
+    <parent link="back_right_leg_a"/>
+    <child  link="motor_1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+    <!-- ===============================================================================================================
+  ========================================== FRONT RIGHT LEG =====================================================
+  =============================================================================================================== -->
+
+  <link name="motor_2">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>  
+  
+  <link name="motor_3">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>
+
+  <link name="front_right_leg_b">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0205 0.0025 0.0000" rpy="0 0 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <link name="front_right_leg_a">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0308 0.0009 0.0010" rpy="0 0 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <joint name="body_to_from_right_leg_b" type="revolute">
+    <parent link="body"/>
+    <child  link="front_right_leg_b"/>
+    <origin xyz="0.04075 0.04425 -0.009" rpy="0 1.57 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <joint name="front_right_leg_b_to_motor_2" type="fixed">
+    <parent link="front_right_leg_b"/>
+    <child  link="motor_2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_right_leg_b_to_a" type="revolute">
+    <parent link="front_right_leg_b"/>
+    <child  link="front_right_leg_a"/>
+    <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  
+  </joint>
+    <joint name="front_right_leg_a_to_motor_3" type="fixed">
+    <parent link="front_right_leg_a"/>
+    <child  link="motor_3"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+    <!-- ===============================================================================================================
+  ========================================== FRONT LEFT LEG =====================================================
+  =============================================================================================================== -->
+
+  <link name="motor_4">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>  
+  
+  <link name="motor_5">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 3.1415"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 3.1415"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/motor.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0060 0.0000 0.0065" rpy="0 0 3.1415"/>
+      <mass value="0.009000000"/>
+      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+    </inertial>
+  </link>
+
+  <link name="front_left_leg_b">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_b.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0205 0.0025 0.0000" rpy="0 0 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <link name="front_left_leg_a">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 3.1415 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 3.1415 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/leg_a.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- <origin xyz="0.0 0.0 0.0" rpy="0.0 3.1415 0.0"/> -->
+      <origin xyz="-0.0308 -0.0009 -0.0010" rpy="0 3.1415 0"/>
+      <mass value="0.007296257"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+  <joint name="body_to_from_left_leg_b" type="revolute">
+    <parent link="body"/>
+    <child  link="front_left_leg_b"/>
+    <origin xyz="-0.04275 0.04425 -0.009" rpy="0 1.57 3.1415"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <joint name="front_left_leg_b_to_motor_4" type="fixed">
+    <parent link="front_left_leg_b"/>
+    <child  link="motor_4"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_left_leg_b_to_a" type="revolute">
+    <parent link="front_left_leg_b"/>
+    <child  link="front_left_leg_a"/>
+    <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+  
+  </joint>
+    <joint name="front_left_leg_a_to_motor_5" type="fixed">
+    <parent link="front_left_leg_a"/>
+    <child  link="motor_5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+
+  <link name="tail">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/tail.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/tail.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.011403 -0.109663 -0.039500" rpy="0 0 0"/>
+      <mass value="0.001927895"/>
+      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+    </inertial>
+  </link>
+
+  <joint name="body_to_tail" type="fixed">
+    <parent link="body"/>
+    <child  link="tail"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>
