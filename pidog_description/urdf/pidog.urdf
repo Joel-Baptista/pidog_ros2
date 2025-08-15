@@ -108,6 +108,26 @@
     </inertial>
   </link>
 
+  <link name="back_right_acrylic">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
+      <mass value="0.00316"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
   <joint name="body_to_back_right_leg_b" type="revolute">
     <parent link="body"/>
     <child  link="back_right_leg_b"/>
@@ -134,6 +154,12 @@
     <parent link="back_right_leg_a"/>
     <child  link="motor_1"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="back_right_leg_a_to_acrylic" type="fixed">
+    <parent link="back_right_leg_a"/>
+    <child  link="back_right_acrylic"/>
+    <origin xyz="0.0635 -0.00225 0.001" rpy="0 3.1415 0"/>
   </joint>
 
 
@@ -221,6 +247,26 @@
     </inertial>
   </link>
 
+  <link name="front_right_acrylic">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
+      <mass value="0.00316"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
   <joint name="body_to_from_right_leg_b" type="revolute">
     <parent link="body"/>
     <child  link="front_right_leg_b"/>
@@ -247,6 +293,12 @@
     <parent link="front_right_leg_a"/>
     <child  link="motor_3"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_right_leg_a_to_acrylic" type="fixed">
+    <parent link="front_right_leg_a"/>
+    <child  link="front_right_acrylic"/>
+    <origin xyz="0.0635 -0.00225 0.001" rpy="0 3.1415 0"/>
   </joint>
 
 
@@ -334,6 +386,27 @@
     </inertial>
   </link>
 
+  <link name="back_left_acrylic">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
+      <mass value="0.00316"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
+  </link>
+
+
   <joint name="body_to_back_left_leg_b" type="revolute">
     <parent link="body"/>
     <child  link="back_left_leg_b"/>
@@ -354,9 +427,16 @@
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
-  
   </joint>
-    <joint name="back_left_leg_a_to_motor_5" type="fixed">
+
+  <joint name="back_left_leg_a_to_acrylic" type="fixed">
+    <parent link="back_left_leg_a"/>
+    <child  link="back_left_acrylic"/>
+    <origin xyz="-0.0635 -0.00225 -0.001" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="back_left_leg_a_to_motor_5" type="fixed">
     <parent link="back_left_leg_a"/>
     <child  link="motor_5"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -444,6 +524,26 @@
       <mass value="0.007296257"/>
       <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
     </inertial>
+  </link>  
+  
+  <link name="front_left_acrylic">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://pidog_description/meshes/acrylic.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
+      <mass value="0.00316"/>
+      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+    </inertial>
   </link>
 
   <joint name="body_to_front_left_leg_b" type="revolute">
@@ -466,9 +566,15 @@
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
-  
   </joint>
-    <joint name="front_left_leg_a_to_motor_7" type="fixed">
+
+  <joint name="front_left_leg_a_to_acrylic" type="fixed">
+    <parent link="front_left_leg_a"/>
+    <child  link="front_left_acrylic"/>
+    <origin xyz="-0.0635 -0.00225 -0.001" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_left_leg_a_to_motor_7" type="fixed">
     <parent link="front_left_leg_a"/>
     <child  link="motor_7"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -595,7 +701,9 @@
       <mass value="0.009000000"/>
       <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
     </inertial>
-  </link>  
+  </link> 
+  
+  <!-- #TODO - Update mass and inertia of neck and head-->
 
   <link name="neck1">
     <visual>
