@@ -1,0 +1,890 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the PiDog
+# Extracted from: /home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/urdf/pidog.urdf
+
+PROTO PiDog [
+  field  SFVec3f     translation     0 0 0.1
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "PiDog"  # Is `Robot.name`.
+  field  SFString    controller      "void"   # Is `Robot.controller`.
+  field  MFString    controllerArgs  []       # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""       # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE    # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE     # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE    # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      DEF body_visual CadShape {
+        url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/body.dae"
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1.000000 0.000000 0.000796
+          anchor 0.040500 -0.066850 -0.009000
+        }
+        device [
+          RotationalMotor {
+            name "body_to_back_right_leg_b"
+            maxVelocity 1.0
+            minPosition -1.57
+            maxPosition 1.57
+            maxTorque 0.3
+          }
+          PositionSensor {
+            name "body_to_back_right_leg_b_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.040500 -0.066850 -0.009000
+          rotation 0.000000 1.000000 0.000000 1.570000
+          children [
+            DEF leg_b_visual CadShape {
+              url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/leg_b.dae"
+            }
+            Solid {
+              children [
+                DEF motor_visual CadShape {
+                  url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/motor.dae"
+                }
+              ]
+              name "motor_0"
+              boundingObject DEF motor Mesh {
+                url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/motor.dae"
+              }
+              physics Physics {
+                density -1
+                mass 0.009000
+                centerOfMass [ 0.006000 0.000000 0.006500 ]
+                inertiaMatrix [
+                  6.435884e-07 1.064905e-06 6.314837e-07
+                  9.642824e-23 -3.026408e-08 2.896510e-23
+                ]
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 0.000000 1.000000
+                anchor 0.047000 0.000000 0.009500
+              }
+              device [
+                RotationalMotor {
+                  name "back_right_leg_b_to_a"
+                  maxVelocity 1.0
+                  minPosition -1.57
+                  maxPosition 1.57
+                  maxTorque 0.3
+                }
+                PositionSensor {
+                  name "back_right_leg_b_to_a_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.047000 0.000000 0.009500
+                rotation 0.000000 0.000000 1.000000 1.570000
+                children [
+                  DEF leg_a_visual CadShape {
+                    url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/leg_a.dae"
+                  }
+                  Solid {
+                    children [
+                      USE motor_visual
+                    ]
+                    name "motor_1"
+                    boundingObject USE motor
+                    physics Physics {
+                      density -1
+                      mass 0.009000
+                      centerOfMass [ 0.006000 0.000000 0.006500 ]
+                      inertiaMatrix [
+                        6.435884e-07 1.064905e-06 6.314837e-07
+                        9.642824e-23 -3.026408e-08 2.896510e-23
+                      ]
+                    }
+                  }
+                  Solid {
+                    translation 0.063500 -0.002250 0.001000
+                    rotation 0.000000 1.000000 0.000000 3.141500
+                    children [
+                      DEF acrylic_visual CadShape {
+                        url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/acrylic.dae"
+                      }
+                    ]
+                    name "back_right_acrylic"
+                    boundingObject DEF acrylic Mesh {
+                      url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/acrylic.dae"
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.003160
+                      centerOfMass [ 0.000400 0.001200 0.000000 ]
+                      inertiaMatrix [
+                        1.636324e-08 6.524578e-08 7.993559e-08
+                        1.277117e-08 3.492460e-23 4.365575e-24
+                      ]
+                    }
+                  }
+                ]
+                name "back_right_leg_a"
+                boundingObject DEF leg_a Mesh {
+                  url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/leg_a.dae"
+                }
+                physics Physics {
+                  density -1
+                  mass 0.007296
+                  centerOfMass [ 0.030800 0.000900 0.001000 ]
+                  inertiaMatrix [
+                    2.581523e-07 2.780169e-06 3.033457e-06
+                    9.763370e-08 3.929017e-23 -1.964509e-23
+                  ]
+                }
+              }
+            }
+          ]
+          name "back_right_leg_b"
+          boundingObject DEF leg_b Mesh {
+            url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/leg_b.dae"
+          }
+          physics Physics {
+            density -1
+            mass 0.007296
+            centerOfMass [ 0.020500 0.002500 0.000000 ]
+            inertiaMatrix [
+              2.581523e-07 2.780169e-06 3.033457e-06
+              9.763370e-08 3.929017e-23 -1.964509e-23
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1.000000 0.000000 0.000796
+          anchor 0.040500 0.053150 -0.009000
+        }
+        device [
+          RotationalMotor {
+            name "body_to_from_right_leg_b"
+            maxVelocity 1.0
+            minPosition -1.57
+            maxPosition 1.57
+            maxTorque 0.3
+          }
+          PositionSensor {
+            name "body_to_from_right_leg_b_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.040500 0.053150 -0.009000
+          rotation 0.000000 1.000000 0.000000 1.570000
+          children [
+            USE leg_b_visual
+            Solid {
+              children [
+                USE motor_visual
+              ]
+              name "motor_2"
+              boundingObject USE motor
+              physics Physics {
+                density -1
+                mass 0.009000
+                centerOfMass [ 0.006000 0.000000 0.006500 ]
+                inertiaMatrix [
+                  6.435884e-07 1.064905e-06 6.314837e-07
+                  9.642824e-23 -3.026408e-08 2.896510e-23
+                ]
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 0.000000 1.000000
+                anchor 0.047000 0.000000 0.009500
+              }
+              device [
+                RotationalMotor {
+                  name "front_right_leg_b_to_a"
+                  maxVelocity 1.0
+                  minPosition -1.57
+                  maxPosition 1.57
+                  maxTorque 0.3
+                }
+                PositionSensor {
+                  name "front_right_leg_b_to_a_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.047000 0.000000 0.009500
+                rotation 0.000000 0.000000 1.000000 1.570000
+                children [
+                  USE leg_a_visual
+                  Solid {
+                    children [
+                      USE motor_visual
+                    ]
+                    name "motor_3"
+                    boundingObject USE motor
+                    physics Physics {
+                      density -1
+                      mass 0.009000
+                      centerOfMass [ 0.006000 0.000000 0.006500 ]
+                      inertiaMatrix [
+                        6.435884e-07 1.064905e-06 6.314837e-07
+                        9.642824e-23 -3.026408e-08 2.896510e-23
+                      ]
+                    }
+                  }
+                  Solid {
+                    translation 0.063500 -0.002250 0.001000
+                    rotation 0.000000 1.000000 0.000000 3.141500
+                    children [
+                      USE acrylic_visual
+                    ]
+                    name "front_right_acrylic"
+                    boundingObject USE acrylic
+                    physics Physics {
+                      density -1
+                      mass 0.003160
+                      centerOfMass [ 0.000400 0.001200 0.000000 ]
+                      inertiaMatrix [
+                        1.636324e-08 6.524578e-08 7.993559e-08
+                        1.277117e-08 3.492460e-23 4.365575e-24
+                      ]
+                    }
+                  }
+                ]
+                name "front_right_leg_a"
+                boundingObject USE leg_a
+                physics Physics {
+                  density -1
+                  mass 0.007296
+                  centerOfMass [ 0.030800 0.000900 0.001000 ]
+                  inertiaMatrix [
+                    2.581523e-07 2.780169e-06 3.033457e-06
+                    9.763370e-08 3.929017e-23 -1.964509e-23
+                  ]
+                }
+              }
+            }
+          ]
+          name "front_right_leg_b"
+          boundingObject USE leg_b
+          physics Physics {
+            density -1
+            mass 0.007296
+            centerOfMass [ 0.020500 0.002500 0.000000 ]
+            inertiaMatrix [
+              2.581523e-07 2.780169e-06 3.033457e-06
+              9.763370e-08 3.929017e-23 -1.964509e-23
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000093 0.000796
+          anchor -0.040500 -0.066850 -0.009000
+        }
+        device [
+          RotationalMotor {
+            name "body_to_back_left_leg_b"
+            maxVelocity 1.0
+            minPosition -1.57
+            maxPosition 1.57
+            maxTorque 0.3
+          }
+          PositionSensor {
+            name "body_to_back_left_leg_b_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.040500 -0.066850 -0.009000
+          rotation -0.706825 0.000046 0.707388 3.141527
+          children [
+            Pose {
+              rotation 1.000000 0.000000 0.000000 3.141500
+              children [
+                USE leg_b_visual
+              ]
+            }
+            Solid {
+              children [
+                USE motor_visual
+              ]
+              name "motor_4"
+              boundingObject USE motor
+              physics Physics {
+                density -1
+                mass 0.009000
+                centerOfMass [ 0.006000 0.000000 0.006500 ]
+                inertiaMatrix [
+                  6.435884e-07 1.064905e-06 6.314837e-07
+                  9.642824e-23 -3.026408e-08 2.896510e-23
+                ]
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 0.000000 1.000000
+                anchor 0.047000 0.000000 0.009500
+              }
+              device [
+                RotationalMotor {
+                  name "back_left_leg_b_to_a"
+                  maxVelocity 1.0
+                  minPosition -1.57
+                  maxPosition 1.57
+                  maxTorque 0.3
+                }
+                PositionSensor {
+                  name "back_left_leg_b_to_a_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.047000 0.000000 0.009500
+                rotation 0.000000 0.000000 1.000000 1.570000
+                children [
+                  Pose {
+                    rotation 0.000000 1.000000 0.000000 3.141500
+                    children [
+                      USE leg_a_visual
+                    ]
+                  }
+                  Solid {
+                    translation -0.063500 -0.002250 -0.001000
+                    children [
+                      USE acrylic_visual
+                    ]
+                    name "back_left_acrylic"
+                    boundingObject USE acrylic
+                    physics Physics {
+                      density -1
+                      mass 0.003160
+                      centerOfMass [ 0.000400 0.001200 0.000000 ]
+                      inertiaMatrix [
+                        1.636324e-08 6.524578e-08 7.993559e-08
+                        1.277117e-08 3.492460e-23 4.365575e-24
+                      ]
+                    }
+                  }
+                  Solid {
+                    children [
+                      Pose {
+                        rotation 0.000000 0.000000 1.000000 3.141500
+                        children [
+                          USE motor_visual
+                        ]
+                      }
+                    ]
+                    name "motor_5"
+                    boundingObject Pose {
+                      rotation 0.000000 0.000000 1.000000 3.141500
+                      children [
+                        USE motor
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.009000
+                      centerOfMass [ -0.006000 0.000000 0.006500 ]
+                      inertiaMatrix [
+                        6.435885e-07 1.064905e-06 6.314837e-07
+                        -3.903650e-11 3.026408e-08 2.804075e-12
+                      ]
+                    }
+                  }
+                ]
+                name "back_left_leg_a"
+                boundingObject Pose {
+                  rotation 0.000000 1.000000 0.000000 3.141500
+                  children [
+                    USE leg_a
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.007296
+                  centerOfMass [ -0.030800 -0.000900 -0.001000 ]
+                  inertiaMatrix [
+                    2.581523e-07 2.780169e-06 3.033457e-06
+                    -9.763370e-08 2.571419e-10 9.046112e-12
+                  ]
+                }
+              }
+            }
+          ]
+          name "back_left_leg_b"
+          boundingObject Pose {
+            rotation 1.000000 0.000000 0.000000 3.141500
+            children [
+              USE leg_b
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.007296
+            centerOfMass [ 0.020500 -0.002500 0.000000 ]
+            inertiaMatrix [
+              2.581523e-07 2.780169e-06 3.033457e-06
+              9.763370e-08 3.929017e-23 -1.964509e-23
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000093 0.000796
+          anchor -0.040500 0.053150 -0.009000
+        }
+        device [
+          RotationalMotor {
+            name "body_to_front_left_leg_b"
+            maxVelocity 1.0
+            minPosition -1.57
+            maxPosition 1.57
+            maxTorque 0.3
+          }
+          PositionSensor {
+            name "body_to_front_left_leg_b_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.040500 0.053150 -0.009000
+          rotation -0.706825 0.000046 0.707388 3.141527
+          children [
+            Pose {
+              rotation 1.000000 0.000000 0.000000 3.141500
+              children [
+                USE leg_b_visual
+              ]
+            }
+            Solid {
+              children [
+                USE motor_visual
+              ]
+              name "motor_6"
+              boundingObject USE motor
+              physics Physics {
+                density -1
+                mass 0.009000
+                centerOfMass [ 0.006000 0.000000 0.006500 ]
+                inertiaMatrix [
+                  6.435884e-07 1.064905e-06 6.314837e-07
+                  9.642824e-23 -3.026408e-08 2.896510e-23
+                ]
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 0.000000 1.000000
+                anchor 0.047000 0.000000 0.009500
+              }
+              device [
+                RotationalMotor {
+                  name "front_left_leg_b_to_a"
+                  maxVelocity 1.0
+                  minPosition -1.57
+                  maxPosition 1.57
+                  maxTorque 0.3
+                }
+                PositionSensor {
+                  name "front_left_leg_b_to_a_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.047000 0.000000 0.009500
+                rotation 0.000000 0.000000 1.000000 1.570000
+                children [
+                  Pose {
+                    rotation 0.000000 1.000000 0.000000 3.141500
+                    children [
+                      USE leg_a_visual
+                    ]
+                  }
+                  Solid {
+                    translation -0.063500 -0.002250 -0.001000
+                    children [
+                      USE acrylic_visual
+                    ]
+                    name "front_left_acrylic"
+                    boundingObject USE acrylic
+                    physics Physics {
+                      density -1
+                      mass 0.003160
+                      centerOfMass [ 0.000400 0.001200 0.000000 ]
+                      inertiaMatrix [
+                        1.636324e-08 6.524578e-08 7.993559e-08
+                        1.277117e-08 3.492460e-23 4.365575e-24
+                      ]
+                    }
+                  }
+                  Solid {
+                    children [
+                      Pose {
+                        rotation 0.000000 0.000000 1.000000 3.141500
+                        children [
+                          USE motor_visual
+                        ]
+                      }
+                    ]
+                    name "motor_7"
+                    boundingObject Pose {
+                      rotation 0.000000 0.000000 1.000000 3.141500
+                      children [
+                        USE motor
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.009000
+                      centerOfMass [ -0.006000 0.000000 0.006500 ]
+                      inertiaMatrix [
+                        6.435885e-07 1.064905e-06 6.314837e-07
+                        -3.903650e-11 3.026408e-08 2.804075e-12
+                      ]
+                    }
+                  }
+                ]
+                name "front_left_leg_a"
+                boundingObject Pose {
+                  rotation 0.000000 1.000000 0.000000 3.141500
+                  children [
+                    USE leg_a
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.007296
+                  centerOfMass [ -0.030800 -0.000900 -0.001000 ]
+                  inertiaMatrix [
+                    2.581523e-07 2.780169e-06 3.033457e-06
+                    -9.763370e-08 2.571419e-10 9.046112e-12
+                  ]
+                }
+              }
+            }
+          ]
+          name "front_left_leg_b"
+          boundingObject Pose {
+            rotation 1.000000 0.000000 0.000000 3.141500
+            children [
+              USE leg_b
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.007296
+            centerOfMass [ 0.020500 -0.002500 0.000000 ]
+            inertiaMatrix [
+              2.581523e-07 2.780169e-06 3.033457e-06
+              9.763370e-08 3.929017e-23 -1.964509e-23
+            ]
+          }
+        }
+      }
+      Solid {
+        translation 0.000000 -0.073750 0.010000
+        rotation 1.000000 0.000000 0.000000 0.785375
+        children [
+          Pose {
+            rotation -0.707123 0.707090 -0.000033 3.141527
+            children [
+              USE motor_visual
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.000000 0.000000 0.008000
+            }
+            device [
+              RotationalMotor {
+                name "motor_8_to_tail"
+                maxVelocity 1.0
+                minPosition -1.57
+                maxPosition 1.57
+                maxTorque 0.3
+              }
+              PositionSensor {
+                name "motor_8_to_tail_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.000000 0.000000 0.008000
+              children [
+                DEF tail_visual CadShape {
+                  url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/tail.dae"
+                }
+              ]
+              name "tail"
+              boundingObject DEF tail Mesh {
+                url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/tail.dae"
+              }
+              physics Physics {
+                density -1
+                mass 0.001928
+                centerOfMass [ 0.000000 -0.016100 0.000000 ]
+                inertiaMatrix [
+                  2.047608e-07 2.047749e-07 1.461196e-07
+                  5.865535e-08 -9.268462e-08 9.267489e-08
+                ]
+              }
+            }
+          }
+        ]
+        name "motor_8"
+        boundingObject Pose {
+          rotation -0.707123 0.707090 -0.000033 3.141527
+          children [
+            USE motor
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.009000
+          centerOfMass [ -0.000000 0.000000 -0.006500 ]
+          inertiaMatrix [
+            1.064905e-06 6.435828e-07 6.314893e-07
+            1.951838e-11 1.400229e-12 -3.026520e-08
+          ]
+        }
+      }
+      Solid {
+        translation 0.000000 0.070000 0.013000
+        rotation -0.357396 0.357412 0.862858 1.717723
+        children [
+          DEF neck1_visual CadShape {
+            url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck1.dae"
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000033 -1.000000 0.000033
+              anchor 0.000000 0.010000 0.015000
+            }
+            device [
+              RotationalMotor {
+                name "neck1_to_motor_9"
+                maxVelocity 1.0
+                minPosition -1.57
+                maxPosition 1.57
+                maxTorque 0.3
+              }
+              PositionSensor {
+                name "neck1_to_motor_9_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.000000 0.010000 0.015000
+              rotation 0.862858 0.357412 -0.357396 1.717723
+              children [
+                USE motor_visual
+                Solid {
+                  translation 0.006000 -0.001000 0.012500
+                  children [
+                    DEF neck2_visual CadShape {
+                      url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck2.dae"
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis -0.000093 -1.000000 0.000046
+                        anchor 0.000000 -0.021000 -0.003000
+                      }
+                      device [
+                        RotationalMotor {
+                          name "neck2_to_motor_10"
+                          maxVelocity 1.0
+                          minPosition -1.57
+                          maxPosition 1.57
+                          maxTorque 0.3
+                        }
+                        PositionSensor {
+                          name "neck2_to_motor_10_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.000000 -0.021000 -0.003000
+                        rotation -0.000046 -0.707090 0.707123 3.141527
+                        children [
+                          USE motor_visual
+                          Solid {
+                            translation 0.011000 0.000000 -0.000000
+                            children [
+                              DEF neck3_visual CadShape {
+                                url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck3.dae"
+                              }
+                              HingeJoint {
+                                jointParameters HingeJointParameters {
+                                  axis 1.000000 0.000000 0.000046
+                                  anchor 0.026500 0.000000 -0.012500
+                                }
+                                device [
+                                  RotationalMotor {
+                                    name "neck3_to_motor_11"
+                                    maxVelocity 1.0
+                                    minPosition -1.57
+                                    maxPosition 1.57
+                                    maxTorque 0.3
+                                  }
+                                  PositionSensor {
+                                    name "neck3_to_motor_11_sensor"
+                                  }
+                                ]
+                                endPoint Solid {
+                                  translation 0.026500 0.000000 -0.012500
+                                  rotation 0.000000 1.000000 0.000000 1.570750
+                                  children [
+                                    USE motor_visual
+                                    Solid {
+                                      translation 0.025000 0.000000 0.015000
+                                      children [
+                                        DEF head_visual CadShape {
+                                          url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/head.dae"
+                                        }
+                                        Solid {
+                                          translation 0.000000 0.000000 0.036000
+                                          children [
+                                            DEF eyes_visual CadShape {
+                                              url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/eyes.dae"
+                                            }
+                                          ]
+                                          name "eyes"
+                                          boundingObject DEF eyes Mesh {
+                                            url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/eyes.dae"
+                                          }
+                                          physics Physics {
+                                            density -1
+                                            mass 0.036528
+                                            centerOfMass [ -0.003000 0.000400 -0.001300 ]
+                                            inertiaMatrix [
+                                              2.649152e-06 7.646259e-06 8.977808e-06
+                                              2.314999e-10 -1.053079e-12 -2.302471e-08
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                      name "head"
+                                      boundingObject DEF head Mesh {
+                                        url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/head.dae"
+                                      }
+                                      physics Physics {
+                                        density -1
+                                        mass 0.045944
+                                        centerOfMass [ -0.000300 0.000000 -0.001100 ]
+                                        inertiaMatrix [
+                                          4.235840e-05 4.566730e-05 1.811897e-05
+                                          1.532991e-10 1.834006e-10 3.959967e-06
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                  name "motor_11"
+                                  boundingObject USE motor
+                                  physics Physics {
+                                    density -1
+                                    mass 0.009000
+                                    centerOfMass [ 0.006000 0.000000 0.006500 ]
+                                    inertiaMatrix [
+                                      6.435884e-07 1.064905e-06 6.314837e-07
+                                      9.642824e-23 -3.026408e-08 2.896510e-23
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                            name "neck3"
+                            boundingObject DEF neck3 Mesh {
+                              url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck3.dae"
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.008817
+                              centerOfMass [ 0.001400 0.000000 -0.017300 ]
+                              inertiaMatrix [
+                                2.358416e-06 3.437501e-06 1.656294e-06
+                                3.231830e-12 6.976157e-08 -8.251762e-11
+                              ]
+                            }
+                          }
+                        ]
+                        name "motor_10"
+                        boundingObject USE motor
+                        physics Physics {
+                          density -1
+                          mass 0.009000
+                          centerOfMass [ 0.006000 0.000000 0.006500 ]
+                          inertiaMatrix [
+                            6.435884e-07 1.064905e-06 6.314837e-07
+                            9.642824e-23 -3.026408e-08 2.896510e-23
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "neck2"
+                  boundingObject DEF neck2 Mesh {
+                    url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck2.dae"
+                  }
+                  physics Physics {
+                    density -1
+                    mass 0.008369
+                    centerOfMass [ -0.000800 0.002400 0.000000 ]
+                    inertiaMatrix [
+                      4.467427e-06 3.819409e-06 1.283483e-06
+                      -5.620815e-09 -9.015288e-21 -3.611914e-21
+                    ]
+                  }
+                }
+              ]
+              name "motor_9"
+              boundingObject USE motor
+              physics Physics {
+                density -1
+                mass 0.009000
+                centerOfMass [ 0.006000 0.000000 0.006500 ]
+                inertiaMatrix [
+                  6.435884e-07 1.064905e-06 6.314837e-07
+                  9.642824e-23 -3.026408e-08 2.896510e-23
+                ]
+              }
+            }
+          }
+        ]
+        name "neck1"
+        boundingObject DEF neck1 Mesh {
+          url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/neck1.dae"
+        }
+        physics Physics {
+          density -1
+          mass 0.001928
+          centerOfMass [ 0.000000 0.000000 0.011000 ]
+          inertiaMatrix [
+            2.047669e-07 2.047809e-07 1.461075e-07
+            -5.864928e-08 -9.268462e-08 -9.267489e-08
+          ]
+        }
+      }
+    ]
+    name IS name
+    boundingObject DEF body Mesh {
+      url "/home/joel/distrobox/ros2-ubuntu/pidog_ws/src/pidog_ros2/pidog_description/meshes/body.dae"
+    }
+    physics Physics {
+      density -1
+      mass 0.150235
+      centerOfMass [ -0.000000 -0.000000 -0.000000 ]
+      inertiaMatrix [
+        3.850881e-04 1.600993e-04 3.450055e-04
+        1.660096e-08 1.660096e-08 4.845267e-09
+      ]
+    }
+  }
+}

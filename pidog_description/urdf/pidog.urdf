@@ -42,9 +42,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
   
@@ -62,9 +62,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>
 
@@ -124,7 +124,7 @@
     <inertial>
       <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
       <mass value="0.00316"/>
-      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+      <inertia ixx="1.636324339e-08" ixy="1.277117044e-08" ixz="3.492459655e-23" iyy="6.524578372e-08" iyz="4.365574569e-24" izz="7.993559382e-08"/>
     </inertial>
   </link>
 
@@ -133,7 +133,7 @@
     <child  link="back_right_leg_b"/>
     <origin xyz="0.0405 -0.06685 -0.009" rpy="0 1.57 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="back_right_leg_b_to_motor_0" type="fixed">
@@ -147,7 +147,7 @@
     <child  link="back_right_leg_a"/>
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   
   </joint>
     <joint name="back_right_leg_a_to_motor_1" type="fixed">
@@ -181,9 +181,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
   
@@ -201,9 +201,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>
 
@@ -263,7 +263,7 @@
     <inertial>
       <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
       <mass value="0.00316"/>
-      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+      <inertia ixx="1.636324339e-08" ixy="1.277117044e-08" ixz="3.492459655e-23" iyy="6.524578372e-08" iyz="4.365574569e-24" izz="7.993559382e-08"/>
     </inertial>
   </link>
 
@@ -272,7 +272,7 @@
     <child  link="front_right_leg_b"/>
     <origin xyz="0.0405 0.05315 -0.009" rpy="0 1.57 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="front_right_leg_b_to_motor_2" type="fixed">
@@ -286,7 +286,7 @@
     <child  link="front_right_leg_a"/>
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   
   </joint>
     <joint name="front_right_leg_a_to_motor_3" type="fixed">
@@ -320,9 +320,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
   
@@ -340,9 +340,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="-0.0060 0.0000 0.0065" rpy="0 0 3.1415"/>
+      <origin xyz="-0.006 0.0 0.0065" rpy="0 0 3.1415"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>
 
@@ -402,17 +402,16 @@
     <inertial>
       <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
       <mass value="0.00316"/>
-      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+      <inertia ixx="1.636324339e-08" ixy="1.277117044e-08" ixz="3.492459655e-23" iyy="6.524578372e-08" iyz="4.365574569e-24" izz="7.993559382e-08"/>
     </inertial>
   </link>
-
 
   <joint name="body_to_back_left_leg_b" type="revolute">
     <parent link="body"/>
     <child  link="back_left_leg_b"/>
     <origin xyz="-0.0405 -0.06685 -0.009" rpy="0 1.57 3.1415"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="back_left_leg_b_to_motor_4" type="fixed">
@@ -426,7 +425,7 @@
     <child  link="back_left_leg_a"/>
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="back_left_leg_a_to_acrylic" type="fixed">
@@ -460,9 +459,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
   
@@ -480,9 +479,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="-0.0060 0.0000 0.0065" rpy="0 0 3.1415"/>
+      <origin xyz="-0.006 0.0 0.0065" rpy="0 0 3.1415"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>
 
@@ -542,7 +541,7 @@
     <inertial>
       <origin xyz="0.0004 0.0012 0.0" rpy="0 0 0"/>
       <mass value="0.00316"/>
-      <inertia ixx="2.581522796e-07" ixy="9.763369628e-08" ixz="3.929017112e-23" iyy="2.780168904e-06" iyz="-1.964508556e-23" izz="3.033456726e-06"/>
+      <inertia ixx="1.636324339e-08" ixy="1.277117044e-08" ixz="3.492459655e-23" iyy="6.524578372e-08" iyz="4.365574569e-24" izz="7.993559382e-08"/>
     </inertial>
   </link>
 
@@ -551,7 +550,7 @@
     <child  link="front_left_leg_b"/>
     <origin xyz="-0.0405 0.05315 -0.009" rpy="0 1.57 3.1415"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="front_left_leg_b_to_motor_6" type="fixed">
@@ -565,7 +564,7 @@
     <child  link="front_left_leg_a"/>
     <origin xyz="0.047 0 0.0095" rpy="0 0 1.57"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
   <joint name="front_left_leg_a_to_acrylic" type="fixed">
@@ -598,9 +597,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0 -0.0060 -0.0065" rpy="0 0 0"/>
+      <origin xyz="-0.00 0.0 -0.0065" rpy="-3.1415 0.0 -1.57075"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
 
@@ -618,9 +617,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0 -0.0161 0" rpy="0 0 0"/>
-      <mass value="0.001927895"/>
-      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+      <origin xyz="0 -0.0161 0" rpy="-1.57075 0.785375 -1.57075"/>
+        <mass value="0.001927895"/>
+        <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="-1.257285476e-21" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
     </inertial>
   </link>
 
@@ -635,7 +634,7 @@
     <child  link="tail"/>
     <origin xyz="0 0 0.008" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+    <limit effort="0.3" lower="-1.57" upper="1.57"/>
   </joint>
 
 
@@ -657,9 +656,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
 
@@ -677,9 +676,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link>  
 
@@ -697,9 +696,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0060 0.0000 0.0065" rpy="0 0 0"/>
+      <origin xyz="0.006 0.0 0.0065" rpy="0 0 0"/>
       <mass value="0.009000000"/>
-      <inertia ixx="6.435884464e-16" ixy="5.517532056e-32" ixz="-3.026407696e-17" iyy="1.064905063e-15" iyz="2.727860255e-32" izz="6.314836794e-16"/>
+      <inertia ixx="6.435884464e-07" ixy="9.642824068e-23" ixz="-3.026407696e-08" iyy="1.064905063e-06" iyz="2.896510287e-23" izz="6.314836794e-07"/>
     </inertial>
   </link> 
   
@@ -719,7 +718,7 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0 0 0.011" rpy="0 0 0"/>
+      <origin xyz="0 0 0.011" rpy="1.57075 0.785375 0"/>
       <mass value="0.001927895"/>
       <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
     </inertial>
@@ -739,9 +738,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="-0.0008 0.0024 0.0" rpy="0 0 0"/>
-      <mass value="0.001927895"/>
-      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+      <origin xyz="-0.0008 0.0024 0.0" rpy="0 0 0.785375"/>
+      <mass value="0.008369068"/>
+      <inertia ixx="4.149053953e-06" ixy="3.240084171e-07" ixz="-3.820969141e-21" iyy="4.137782302e-06" iyz="-8.928691386e-21" izz="1.283483167e-06"/>
     </inertial>
   </link>  
   
@@ -759,9 +758,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0.0014 0.0 -0.0173" rpy="0 0 0"/>
-      <mass value="0.001927895"/>
-      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+      <origin xyz="0.0014 0.0 -0.0173" rpy="-1.57075 0 -3.1415"/>
+      <mass value="0.008817173"/>
+      <inertia ixx="2.358402818e-06" ixy="6.982662427e-08" ixz="1.885928214e-21" iyy="1.656307063e-06" iyz="0.000000000e+00" izz="3.437501256e-06"/>
     </inertial>
   </link>
 
@@ -779,9 +778,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="-0.0003 0.0 -0.0011" rpy="0 0 0"/>
-      <mass value="0.001927895"/>
-      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+      <origin xyz="-0.0003 0.0 -0.0011" rpy="1.57075 1.57075 0"/>
+      <mass value="0.045943792"/>
+      <inertia ixx="4.566766722e-05" ixy="-3.958690952e-06" ixz="-2.514570951e-21" iyy="1.811860320e-05" iyz="-4.526227713e-20" izz="4.235840403e-05"/>
     </inertial>
   </link>  
   
@@ -799,9 +798,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="-0.003 0.0004 -0.0013" rpy="0 0 0"/>
-      <mass value="0.001927895"/>
-      <inertia ixx="1.461160457e-07" ixy="1.310689676e-07" ixz="0.000000000e+00" iyy="1.461160457e-07" iyz="-1.257285476e-21" izz="2.634231983e-07"/>
+      <origin xyz="-0.003 0.0004 -0.0013" rpy="1.57075 1.57075 0"/>
+      <mass value="0.036527618"/>
+      <inertia ixx="7.646257329e-06" ixy="2.296302215e-08" ixz="2.514570951e-21" iyy="8.977810601e-06" iyz="-1.571606845e-22" izz="2.649152211e-06"/>
     </inertial>
   </link>
 
@@ -816,7 +815,7 @@
     <child  link="motor_9"/>
     <!-- <origin xyz="0 -0.0025 0.0125" rpy="0 0 0"/> -->
     <origin xyz="0 0.01 0.015" rpy="1.57075 0.785375 0"/>
-      <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+      <limit effort="0.3" lower="-1.57" upper="1.57"/>
     <axis xyz="0 0 1"/>
   </joint>  
   
@@ -832,7 +831,7 @@
     <child  link="motor_10"/>
     <!-- <origin xyz="0 -0.0025 0.0125" rpy="0 0 0"/> -->
     <origin xyz="0 -0.021 -0.003" rpy="-1.57075 0 3.1415"/>
-      <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+      <limit effort="0.3" lower="-1.57" upper="1.57"/>
     <axis xyz="0 0 1"/>
   </joint>  
 
@@ -848,7 +847,7 @@
     <child  link="motor_11"/>
     <!-- <origin xyz="0 -0.0025 0.0125" rpy="0 0 0"/> -->
     <origin xyz="0.0265 0.0 -0.0125" rpy="0 1.57075 0"/>
-      <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
+      <limit effort="0.3" lower="-1.57" upper="1.57"/>
     <axis xyz="0 0 1"/>
   </joint> 
 
@@ -865,19 +864,5 @@
     <!-- <origin xyz="0 -0.0025 0.0125" rpy="0 0 0"/> -->
     <origin xyz="0.0 0.0 0.036" rpy="0 0.0 0"/>
   </joint> 
-
-  <!-- <joint name="body_to_motor_8" type="fixed">
-    <parent link="body"/>
-    <child  link="motor_8"/>
-    <origin xyz="0 -0.07375 0.01" rpy="0.785375 0 0"/>
-  </joint>
-
-  <joint name="motor_8_to_tail" type="revolute">
-    <parent link="motor_8"/>
-    <child  link="tail"/>
-    <origin xyz="0 0 0.008" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="0.3" velocity="1.0" lower="-1.57" upper="1.57"/>
-  </joint> -->
 
 </robot>

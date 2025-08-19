@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="PiDog">
+    <webots>
+        <plugin type="pidog_sim.pidog_sim_driver.PiDogSimDriver" />
+    </webots>
+</robot>
