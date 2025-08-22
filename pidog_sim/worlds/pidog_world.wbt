@@ -6,6 +6,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
 
 WorldInfo {
+  title "PIDOG WORLD — pkg pidog_sim/worlds/pidog_world.wbt"
   basicTimeStep 4 
   linearDamping 0.01     # try 0.01–0.05
   angularDamping 0.02    # try 0.02–0.08
@@ -40,11 +41,17 @@ PiDog {
   translation     0 0 0.1
   rotation        0 0 1 0
   name            "PiDog"  # Is `Robot.name`.
-  controller      "extern"   # Is `Robot.controller`.
+  controller      "<extern>"   # Is `Robot.controller`.
+  controllerUrl   "ipc://1234:PiDog"
   controllerArgs  []       # Is `Robot.controllerArgs`.
   customData      ""       # Is `Robot.customData`.
   supervisor      FALSE    # Is `Robot.supervisor`.
   synchronization TRUE     # Is `Robot.synchronization`.
-  selfCollision   FALSE    # Is `Robot.selfCollision`.
+  selfCollision   TRUE    # Is `Robot.selfCollision`.
+  motorPID          20 0 0     # (P, I, D)
+  motorMaxVelocity  10.0       # rad/s
+  motorMaxTorque    0.3       # N·m
+  motorMinPosition -1.57      # rad
+  motorMaxPosition  1.57      # rad
   
 }

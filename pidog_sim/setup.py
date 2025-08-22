@@ -7,6 +7,7 @@ data_files.append(('share/' + package_name + '/launch', ['launch/pidog_launch.py
 data_files.append(('share/' + package_name + '/worlds', ['worlds/pidog_world.wbt']))
 data_files.append(('share/' + package_name + '/resource', ['resource/pidog_world.urdf']))
 data_files.append(('share/' + package_name + '/protos', ['protos/PiDog.proto']))
+data_files.append(('share/' + package_name + '/pidog_sim', ['pidog_sim/pidog_sim_driver.py']))
 data_files.append(('share/' + package_name, ['package.xml']))
 
 

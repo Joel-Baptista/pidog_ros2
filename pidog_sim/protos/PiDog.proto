@@ -14,6 +14,11 @@ PROTO PiDog [
   field  SFBool      supervisor      FALSE    # Is `Robot.supervisor`.
   field  SFBool      synchronization TRUE     # Is `Robot.synchronization`.
   field  SFBool      selfCollision   FALSE    # Is `Robot.selfCollision`.
+  field SFVec3f motorPID          20 0 0     # (P, I, D)
+  field SFFloat motorMaxVelocity  10.0       # rad/s
+  field SFFloat motorMaxTorque    0.3       # N·m
+  field SFFloat motorMinPosition -1.57      # rad
+  field SFFloat motorMaxPosition  1.57      # rad
 ]
 {
   Robot {
@@ -37,10 +42,11 @@ PROTO PiDog [
         device [
           RotationalMotor {
             name "body_to_back_right_leg_b"
-            maxVelocity 1.0
-            minPosition -1.57
-            maxPosition 1.57
-            maxTorque 0.3
+            maxVelocity IS motorMaxVelocity
+            minPosition IS motorMinPosition
+            maxPosition IS motorMaxPosition
+            maxTorque IS motorMaxTorque
+            controlPID IS motorPID
           }
           PositionSensor {
             name "body_to_back_right_leg_b_sensor"
@@ -81,10 +87,11 @@ PROTO PiDog [
               device [
                 RotationalMotor {
                   name "back_right_leg_b_to_a"
-                  maxVelocity 1.0
-                  minPosition -1.57
-                  maxPosition 1.57
-                  maxTorque 0.3
+                  maxVelocity IS motorMaxVelocity
+                  minPosition IS motorMinPosition
+                  maxPosition IS motorMaxPosition
+                  maxTorque IS motorMaxTorque
+                  controlPID IS motorPID
                 }
                 PositionSensor {
                   name "back_right_leg_b_to_a_sensor"
@@ -174,14 +181,15 @@ PROTO PiDog [
         }
         device [
           RotationalMotor {
-            name "body_to_from_right_leg_b"
-            maxVelocity 1.0
-            minPosition -1.57
-            maxPosition 1.57
-            maxTorque 0.3
+            name "body_to_front_right_leg_b"
+            maxVelocity IS motorMaxVelocity
+            minPosition IS motorMinPosition
+            maxPosition IS motorMaxPosition
+            maxTorque IS motorMaxTorque
+            controlPID IS motorPID
           }
           PositionSensor {
-            name "body_to_from_right_leg_b_sensor"
+            name "body_to_front_right_leg_b_sensor"
           }
         ]
         endPoint Solid {
@@ -213,10 +221,11 @@ PROTO PiDog [
               device [
                 RotationalMotor {
                   name "front_right_leg_b_to_a"
-                  maxVelocity 1.0
-                  minPosition -1.57
-                  maxPosition 1.57
-                  maxTorque 0.3
+                  maxVelocity IS motorMaxVelocity
+                  minPosition IS motorMinPosition
+                  maxPosition IS motorMaxPosition
+                  maxTorque IS motorMaxTorque
+                  controlPID IS motorPID
                 }
                 PositionSensor {
                   name "front_right_leg_b_to_a_sensor"
@@ -297,10 +306,11 @@ PROTO PiDog [
         device [
           RotationalMotor {
             name "body_to_back_left_leg_b"
-            maxVelocity 1.0
-            minPosition -1.57
-            maxPosition 1.57
-            maxTorque 0.3
+            maxVelocity IS motorMaxVelocity
+            minPosition IS motorMinPosition
+            maxPosition IS motorMaxPosition
+            maxTorque IS motorMaxTorque
+            controlPID IS motorPID
           }
           PositionSensor {
             name "body_to_back_left_leg_b_sensor"
@@ -340,10 +350,11 @@ PROTO PiDog [
               device [
                 RotationalMotor {
                   name "back_left_leg_b_to_a"
-                  maxVelocity 1.0
-                  minPosition -1.57
-                  maxPosition 1.57
-                  maxTorque 0.3
+                  maxVelocity IS motorMaxVelocity
+                  minPosition IS motorMinPosition
+                  maxPosition IS motorMaxPosition
+                  maxTorque IS motorMaxTorque
+                  controlPID IS motorPID
                 }
                 PositionSensor {
                   name "back_left_leg_b_to_a_sensor"
@@ -448,10 +459,11 @@ PROTO PiDog [
         device [
           RotationalMotor {
             name "body_to_front_left_leg_b"
-            maxVelocity 1.0
-            minPosition -1.57
-            maxPosition 1.57
-            maxTorque 0.3
+            maxVelocity IS motorMaxVelocity
+            minPosition IS motorMinPosition
+            maxPosition IS motorMaxPosition
+            maxTorque IS motorMaxTorque
+            controlPID IS motorPID
           }
           PositionSensor {
             name "body_to_front_left_leg_b_sensor"
@@ -491,10 +503,11 @@ PROTO PiDog [
               device [
                 RotationalMotor {
                   name "front_left_leg_b_to_a"
-                  maxVelocity 1.0
-                  minPosition -1.57
-                  maxPosition 1.57
-                  maxTorque 0.3
+                  maxVelocity IS motorMaxVelocity
+                  minPosition IS motorMinPosition
+                  maxPosition IS motorMaxPosition
+                  maxTorque IS motorMaxTorque
+                  controlPID IS motorPID
                 }
                 PositionSensor {
                   name "front_left_leg_b_to_a_sensor"
@@ -609,10 +622,11 @@ PROTO PiDog [
             device [
               RotationalMotor {
                 name "motor_8_to_tail"
-                maxVelocity 1.0
-                minPosition -1.57
-                maxPosition 1.57
-                maxTorque 0.3
+                maxVelocity IS motorMaxVelocity
+                minPosition IS motorMinPosition
+                maxPosition IS motorMaxPosition
+                maxTorque IS motorMaxTorque
+                controlPID IS motorPID
               }
               PositionSensor {
                 name "motor_8_to_tail_sensor"
@@ -673,10 +687,11 @@ PROTO PiDog [
             device [
               RotationalMotor {
                 name "neck1_to_motor_9"
-                maxVelocity 1.0
-                minPosition -1.57
-                maxPosition 1.57
-                maxTorque 0.3
+                maxVelocity IS motorMaxVelocity
+                minPosition IS motorMinPosition
+                maxPosition IS motorMaxPosition
+                maxTorque IS motorMaxTorque
+                controlPID IS motorPID
               }
               PositionSensor {
                 name "neck1_to_motor_9_sensor"
@@ -701,10 +716,11 @@ PROTO PiDog [
                       device [
                         RotationalMotor {
                           name "neck2_to_motor_10"
-                          maxVelocity 1.0
-                          minPosition -1.57
-                          maxPosition 1.57
-                          maxTorque 0.3
+                          maxVelocity IS motorMaxVelocity
+                          minPosition IS motorMinPosition
+                          maxPosition IS motorMaxPosition
+                          maxTorque IS motorMaxTorque
+                          controlPID IS motorPID
                         }
                         PositionSensor {
                           name "neck2_to_motor_10_sensor"
@@ -729,10 +745,11 @@ PROTO PiDog [
                                 device [
                                   RotationalMotor {
                                     name "neck3_to_motor_11"
-                                    maxVelocity 1.0
-                                    minPosition -1.57
-                                    maxPosition 1.57
-                                    maxTorque 0.3
+                                    maxVelocity IS motorMaxVelocity
+                                    minPosition IS motorMinPosition
+                                    maxPosition IS motorMaxPosition
+                                    maxTorque IS motorMaxTorque
+                                    controlPID IS motorPID
                                   }
                                   PositionSensor {
                                     name "neck3_to_motor_11_sensor"
