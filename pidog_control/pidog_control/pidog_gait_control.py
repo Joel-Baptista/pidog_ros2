@@ -7,9 +7,15 @@ from geometry_msgs.msg import Quaternion
 from sensor_msgs.msg import JointState
 from tf2_ros import TransformBroadcaster, TransformStamped
 
-L1 = 0.047 # meters
-L2 = 0.0635
-W = 0.0095
+import numpy as np
+import time
+from pidog_control.kinemactics import leg_inverse_kin, straight_walk_planner, four_legs_inverse_kin, pivot_planner
+
+import copy
+
+INIT_X = 0.0
+INIT_Y = 0.08
+FPS = 1 / 10
 
 
 class PiDogGaitControl(Node):
@@ -20,12 +26,21 @@ class PiDogGaitControl(Node):
         qos_profile = QoSProfile(depth=10)
         self.joint_pub = self.create_publisher(JointState, "motor_pos", qos_profile)
         self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
-        self.timer = self.create_timer(1 / 30, self.update)
+        self.create_subscription(
+            JointState, "joint_states", self.joint_states_callback, 1
+        )
 
-        self.sit = [] 
-        
-        for a in [30, 60, -30, -60, 80, -45, -80, 45]:
-            self.sit.append(a * (pi / 180))
+
+        x = np.array([0.02, 0.02, -0.01, -0.01])
+        y = np.ones((4,)) * INIT_Y
+        leg_sides = np.array([True, False, True, False])
+        angles = four_legs_inverse_kin(x, y, leg_sides)
+
+        self.init_angles = angles
+
+        self.init_angles.extend([0.0, 0.0, 0.0, 0.0])
+
+        print("Init angles: ", self.init_angles)
 
         # message declarations
         self.odom_trans = TransformStamped()
@@ -35,8 +50,10 @@ class PiDogGaitControl(Node):
 
         self.get_logger().info("{0} started".format(self.get_name()))
 
-    def update(self):
-        # update joint_state
+        self.current_joint_states = [0.0] * 12
+
+        time.sleep(3)
+
         now = self.get_clock().now()
         self.joint_state.header.stamp = now.to_msg()
         self.joint_state.name = [
@@ -53,23 +70,54 @@ class PiDogGaitControl(Node):
             "motor_10",
             "motor_11",
         ]
-        self.joint_state.position = [
-            self.sit[0],
-            self.sit[1],
-            self.sit[2],
-            self.sit[3],
-            self.sit[4],
-            self.sit[5],
-            self.sit[6],
-            self.sit[7],
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-        ]
+        self.joint_state.position = self.init_angles
 
         # send the joint state and transform
         self.joint_pub.publish(self.joint_state)
+
+        self.timer = self.create_timer(FPS, self.update)
+
+        self.angle_counter = 0
+        self.planned_angles = pivot_planner(INIT_X, INIT_Y)
+        self.angle_number = len(self.planned_angles)
+
+
+        # self.planned_angles = leg_circle_path(self.sit[0], self.sit[1], self.angle_number, 0.01, True)
+
+    def joint_states_callback(self, msg):
+
+        self.current_joint_states = msg.position
+
+    def update(self):
+
+        ang_counter = self.angle_counter % self.angle_number
+        self.angle_counter += 1
+
+        joint_state = JointState()
+
+        now = self.get_clock().now()
+        joint_state.header.stamp = now.to_msg()
+        joint_state.name = [
+            "motor_0",
+            "motor_1",
+            "motor_2",
+            "motor_3",
+            "motor_4",
+            "motor_5",
+            "motor_6",
+            "motor_7",
+            "motor_8",
+            "motor_9",
+            "motor_10",
+            "motor_11",
+        ]
+
+        if ang_counter == 0:
+            joint_state.position = self.init_angles
+        else:    
+            joint_state.position = self.planned_angles[ang_counter - 1]
+
+        self.joint_pub.publish(joint_state)
 
 
 def main():

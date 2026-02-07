@@ -1,42 +1,387 @@
 Panels:
   - Class: rviz_common/Displays
+    Help Height: 70
     Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /RobotModel1
+        - /RobotModel1/Mass Properties1
+        - /TF1
+      Splitter Ratio: 0.5
+    Tree Height: 296
   - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
     Name: Views
+    Splitter Ratio: 0.5
 Visualization Manager:
   Class: ""
   Displays:
-    - Class: rviz_default_plugins/Grid
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
       Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
       Value: true
-      Alpha: 0.5
-    - Class: rviz_default_plugins/RobotModel
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
       Description Source: Topic
       Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
         Value: /robot_description
       Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        back_left_acrylic:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        back_left_leg_a:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        back_left_leg_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        back_right_acrylic:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        back_right_leg_a:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        back_right_leg_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        eyes:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_acrylic:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_leg_a:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_leg_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_acrylic:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_leg_a:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_leg_b:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motor_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        neck1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        neck2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        neck3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tail:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
       Name: RobotModel
-      Alpha: 1
+      TF Prefix: ""
+      Update Interval: 0
       Value: true
+      Visual Enabled: true
     - Class: rviz_default_plugins/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        back_left_acrylic:
+          Value: true
+        back_left_leg_a:
+          Value: true
+        back_left_leg_b:
+          Value: true
+        back_right_acrylic:
+          Value: true
+        back_right_leg_a:
+          Value: true
+        back_right_leg_b:
+          Value: true
+        body:
+          Value: true
+        eyes:
+          Value: true
+        front_left_acrylic:
+          Value: true
+        front_left_leg_a:
+          Value: true
+        front_left_leg_b:
+          Value: true
+        front_right_acrylic:
+          Value: true
+        front_right_leg_a:
+          Value: true
+        front_right_leg_b:
+          Value: true
+        head:
+          Value: true
+        motor_0:
+          Value: true
+        motor_1:
+          Value: true
+        motor_10:
+          Value: true
+        motor_11:
+          Value: true
+        motor_2:
+          Value: true
+        motor_3:
+          Value: true
+        motor_4:
+          Value: true
+        motor_5:
+          Value: true
+        motor_6:
+          Value: true
+        motor_7:
+          Value: true
+        motor_8:
+          Value: true
+        motor_9:
+          Value: true
+        neck1:
+          Value: true
+        neck2:
+          Value: true
+        neck3:
+          Value: true
+        tail:
+          Value: true
+      Marker Scale: 0.20000000298023224
       Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        body:
+          back_left_leg_b:
+            back_left_leg_a:
+              back_left_acrylic:
+                {}
+              motor_5:
+                {}
+            motor_4:
+              {}
+          back_right_leg_b:
+            back_right_leg_a:
+              back_right_acrylic:
+                {}
+              motor_1:
+                {}
+            motor_0:
+              {}
+          front_left_leg_b:
+            front_left_leg_a:
+              front_left_acrylic:
+                {}
+              motor_7:
+                {}
+            motor_6:
+              {}
+          front_right_leg_b:
+            front_right_leg_a:
+              front_right_acrylic:
+                {}
+              motor_3:
+                {}
+            motor_2:
+              {}
+          motor_8:
+            tail:
+              {}
+          neck1:
+            motor_9:
+              neck2:
+                motor_10:
+                  neck3:
+                    motor_11:
+                      head:
+                        eyes:
+                          {}
+      Update Interval: 0
       Value: true
-      Enabled: false
+  Enabled: true
   Global Options:
+    Background Color: 48; 48; 48
     Fixed Frame: body
     Frame Rate: 30
   Name: root
   Tools:
     - Class: rviz_default_plugins/MoveCamera
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 5.0
+      Distance: 0.31555891036987305
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
       Name: Current View
-      Pitch: 0.33
+      Near Clip Distance: 0.009999999776482582
+      Pitch: -0.14979764819145203
+      Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.5
+      Yaw: 2.8818092346191406
+    Saved: ~
 Window Geometry:
+  Displays:
+    collapsed: false
   Height: 800
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd000000010000000000000187000002c6fc0200000002fb000000100044006900730070006c006100790073010000003d000001ab000000c900fffffffb0000000a0056006900650077007301000001ee00000115000000a400ffffff00000323000002c600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Views:
+    collapsed: false
   Width: 1200
+  X: 360
+  Y: 103

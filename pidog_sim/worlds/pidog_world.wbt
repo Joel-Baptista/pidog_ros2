@@ -6,23 +6,26 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
 
 WorldInfo {
-  title "PIDOG WORLD — pkg pidog_sim/worlds/pidog_world.wbt"
-  basicTimeStep 4 
-  linearDamping 0.01     # try 0.01–0.05
-  angularDamping 0.02    # try 0.02–0.08
+  title "PIDOF WORLD — pkg pidog_sim/worlds/world.wbt"
+  basicTimeStep 2
+  ERP 0.01 # (Error Reduction Parameter) 
+  CFM 1e-3 # (Constraint Force Mixing)
 
-  # contactProperties [
-  #   ContactProperties {
-  #   material1 "default"
-  #   material2 "default"
-  #   coulombFriction 0.6   # 0.6–1.2 typical
-  #   bounce 0
-  #   softERP 0.2           # 0.1–0.4 = “softer” but stable contacts
-  #   softCFM 1e-4          # 1e-5–1e-3; start 1e-4
-  #   maxContactJoints 20   # raises the “10 deepest” cap, but don’t go crazy
-  # }
-  #  ]
-
+  contactProperties [
+    ContactProperties {
+      material1          "default"                                                                                             # any string
+      material2          "default"                                                                                             # any string
+      coulombFriction    1                                                                                                     # [0, inf)
+      frictionRotation   0 0                                                                                                   # any positive vector
+      rollingFriction    0 0 0                                                                                                 # rolling/spinning friction
+      bounce             0.5                                                                                                   # [0, 1]
+      bounceVelocity     0.1                                                                                                  # [0, inf)
+      forceDependentSlip 0                                                                                                     # [0, inf)
+      softERP            0.2                                                                                                   # [0, 1]
+      softCFM            0.1                                                                                                 # (0, inf)
+      maxContactJoints   15                                                                                                    # (0, inf)
+    }
+  ]
 }
 
 Viewpoint {
@@ -49,7 +52,7 @@ PiDog {
   synchronization TRUE     # Is `Robot.synchronization`.
   selfCollision   TRUE    # Is `Robot.selfCollision`.
   motorPID          20 0 0     # (P, I, D)
-  motorMaxVelocity  10.0       # rad/s
+  motorMaxVelocity  5.0       # rad/s
   motorMaxTorque    0.3       # N·m
   motorMinPosition -1.57      # rad
   motorMaxPosition  1.57      # rad
